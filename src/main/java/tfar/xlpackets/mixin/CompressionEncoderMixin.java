@@ -22,7 +22,6 @@ public class CompressionEncoderMixin {
     @Shadow private int threshold;
     @Shadow private Deflater deflater;
     @Shadow private byte[] encodeBuf;
-
     @Shadow @Final private static Logger LOGGER;
 
     @Inject(method = "encode*", at = @At("HEAD"), cancellable = true)
