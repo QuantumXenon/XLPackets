@@ -18,11 +18,18 @@ import java.util.zip.Deflater;
 @Mixin(CompressionEncoder.class)
 public class CompressionEncoderMixin {
 
-    @Shadow @Final private static boolean DISABLE_PACKET_DEBUG;
-    @Shadow private int threshold;
-    @Shadow private Deflater deflater;
-    @Shadow private byte[] encodeBuf;
-    @Shadow @Final private static Logger LOGGER;
+    @Shadow
+    @Final
+    private static boolean DISABLE_PACKET_DEBUG;
+    @Shadow
+    @Final
+    private static Logger LOGGER;
+    @Shadow
+    private int threshold;
+    @Shadow
+    private Deflater deflater;
+    @Shadow
+    private byte[] encodeBuf;
 
     @Inject(method = "encode*", at = @At("HEAD"), cancellable = true)
     protected void encode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, ByteBuf byteBuf2, CallbackInfo ci) {
@@ -45,7 +52,7 @@ public class CompressionEncoderMixin {
             this.deflater.setInput(abyte, 0, i);
             this.deflater.finish();
 
-            while(!this.deflater.finished()) {
+            while (!this.deflater.finished()) {
                 int j = this.deflater.deflate(this.encodeBuf);
                 friendlybytebuf.writeBytes(this.encodeBuf, 0, j);
             }
