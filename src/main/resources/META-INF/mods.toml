@@ -3,10 +3,10 @@ loaderVersion = "[38,)"
 license = "Unlicense"
 
 [[mods]]
-modId = "xlpackets-renewed"
+modId = "xl_packets_renewed"
 version = "${version}"
 displayName = "XL Packets Renewed"
-description = "Mod to help clients connect to servers with large datapacks"
+description = "Mod to help clients connect to servers with large datapacks."
 
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/xl-packets-renewed"
 authors = "Tfarecnim, Updated by TheQuantumXenon"
